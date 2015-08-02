@@ -1,0 +1,18 @@
+
+syntax = "proto3";
+
+package event;
+
+option cc_enable_arenas = true;
+
+import "base.proto";
+
+message EventStream {
+	repeated string events = 1;
+}
+
+service EventStore {
+	rpc get (common.Uuid) returns (EventStream){}
+
+}
+
